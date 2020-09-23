@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.employeedetail.model.Employee;
+import com.example.employeedetail.listner.ListenData;
+import com.example.employeedetail.R;
 
 import java.util.List;
 

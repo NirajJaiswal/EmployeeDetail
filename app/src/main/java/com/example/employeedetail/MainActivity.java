@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+
+import com.example.employeedetail.adapter.RecyclerAdapter;
+import com.example.employeedetail.listner.ListenData;
+import com.example.employeedetail.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
