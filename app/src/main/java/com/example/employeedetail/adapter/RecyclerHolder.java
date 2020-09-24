@@ -1,10 +1,14 @@
-package com.example.employeedetail;
+package com.example.employeedetail.adapter;
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.employeedetail.model.Employee;
+import com.example.employeedetail.listner.ListenData;
+import com.example.employeedetail.R;
 
 public class RecyclerHolder extends RecyclerView.ViewHolder {
     public TextView mEmpNameTextView;
@@ -17,7 +21,7 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
         mEmpIdTextView=itemView.findViewById(R.id.tv_eid);
 
     }
-    public void onBindData(final ListenData listenData ,final Employee employee){
+    public void onBindData(final ListenData listenData , final Employee employee){
 
     mEmpNameTextView.setText(employee.getEmpName());
         mEmpIdTextView.setText(String.valueOf(employee.getEmpId()));

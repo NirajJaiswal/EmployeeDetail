@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.employeedetail.model.Employee;
+
 public class EmployeeDetails extends AppCompatActivity {
     private TextView empNameTextView;
     private TextView empIdTextView;

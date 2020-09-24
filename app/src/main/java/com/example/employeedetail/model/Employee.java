@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.model;
 
 import java.io.Serializable;
 
