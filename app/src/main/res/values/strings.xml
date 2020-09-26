@@ -2,4 +2,6 @@
     <string name="app_name">EmployeeDetail</string>
     <string name="tv">TextView</string>
     <string name="tv1">TextView</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

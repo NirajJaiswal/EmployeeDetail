@@ -1,6 +1,7 @@
 package com.example.employeedetail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +39,8 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
         List<ButtonModel>list=new ArrayList<>();
         list.add(new ButtonModel(1,"Recycler View"));
         list.add(new ButtonModel(2,"Fragment"));
+        list.add(new ButtonModel(3,"Add Fragment"));
+        list.add(new ButtonModel(4,"Fragment Communication"));
         return list;
     }
 
@@ -55,6 +58,16 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
                  intent=new Intent(StartActivity.this,NavigationActivity.class);
                  startActivity(intent);
                  break;
+            case 3:
+                intent =new Intent(StartActivity.this,AddActivity.class);
+                String name="Shreya";
+                intent.putExtra("key_1",name);
+                startActivity(intent);
+                break;
+            case 4:
+                intent=new Intent(StartActivity.this, FragActivity.class);
+                startActivity(intent);
+                break;
             default:
 
         }
