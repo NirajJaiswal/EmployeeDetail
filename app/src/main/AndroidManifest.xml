@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FragActivity"></activity>
+        <activity android:name=".TabLayoutActivity"></activity>
+        <activity android:name=".FragActivity" />
         <activity android:name=".AddActivity" />
         <activity android:name=".NavigationActivity" />
         <activity android:name=".StartActivity">
