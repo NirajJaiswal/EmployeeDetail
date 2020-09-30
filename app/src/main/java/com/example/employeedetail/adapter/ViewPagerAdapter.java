@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

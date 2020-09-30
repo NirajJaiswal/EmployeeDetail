@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.employeedetail.CountryItem;
+import com.example.employeedetail.R;
 
 import java.util.List;
 

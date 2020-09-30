@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FloatingActionBar"
+    android:layout_gravity="center">
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/floatingActionMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="624dp"
+        android:layout_margin="30dp"
+        app:menu_showShadow="true"
+        app:menu_openDirection="up"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:menu_labels_textColor="@color/colorText"
+        app:menu_labels_colorNormal="@color/colorBackground"
+        app:menu_labels_colorPressed="@color/colorAccent"
+
+        >
+
+
+    <com.github.clans.fab.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_label="photo"
+        app:fabSize="mini"
+        android:id="@+id/floatingButtonPhoto"
+        android:src="@drawable/photo"
+        tools:ignore="MissingConstraints" />
+    <com.github.clans.fab.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_label="edit"
+        app:fabSize="mini"
+        android:id="@+id/floatingButtonEdit"
+        android:src="@drawable/edit"
+        tools:ignore="MissingConstraints" />
+    <com.github.clans.fab.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_label="record"
+        app:fabSize="mini"
+        android:id="@+id/floatingButtonRecord"
+        android:src="@drawable/record"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+
+</RelativeLayout>
