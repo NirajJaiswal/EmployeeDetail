@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/profile"
+        android:id="@+id/header"/>
+
+    <TextView
+        android:id="@+id/tv_mailname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_toEndOf="@+id/header"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+
+        android:text="Name"/>
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/header"
+        android:layout_below="@+id/tv_mailname"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:text="Email"/>
+
+
+</RelativeLayout>

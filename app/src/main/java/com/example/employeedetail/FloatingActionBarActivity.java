@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
-public class FloatingActionBar extends AppCompatActivity {
+public class FloatingActionBarActivity extends AppCompatActivity {
 FloatingActionMenu floatingActionMenu;
 FloatingActionButton edit,record,photo;
     @Override
@@ -24,19 +24,19 @@ photo=(FloatingActionButton) findViewById(R.id.floatingButtonPhoto);
 edit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Toast.makeText(FloatingActionBar.this,"Edit Clicked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(FloatingActionBarActivity.this,"Edit Clicked",Toast.LENGTH_SHORT).show();
     }
 });
 record.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Toast.makeText(FloatingActionBar.this,"Record Clicked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(FloatingActionBarActivity.this,"Record Clicked",Toast.LENGTH_SHORT).show();
     }
 });
 photo.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Toast.makeText(FloatingActionBar.this,"Photo Clicked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(FloatingActionBarActivity.this,"Photo Clicked",Toast.LENGTH_SHORT).show();
     }
 });
 

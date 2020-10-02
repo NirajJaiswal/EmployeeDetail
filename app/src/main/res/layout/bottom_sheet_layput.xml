@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+<com.mikhaellopez.circularimageview.CircularImageView
+
+    android:id="@+id/iv_med"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+   android:src="@drawable/med"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+       android:layout_toEndOf="@+id/iv_med"
+        android:textSize="20sp"
+        android:id="@+id/tv_nam"/>
+
+
+</RelativeLayout>

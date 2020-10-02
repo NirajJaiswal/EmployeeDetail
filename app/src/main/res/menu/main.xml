@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+
+
+    <item android:title="User"
+       >
+
+
+        <menu>
+
+            <item android:title="Login"
+                android:id="@+id/login"
+                android:icon="@drawable/login"/>
+            <item android:title="My Order"
+                android:id="@+id/myOrder"
+                android:icon="@drawable/myorder"/>
+            <item android:title="Cart"
+                android:id="@+id/cart"
+                android:icon="@drawable/cart"/>
+            <item android:title="Wallet"
+                android:id="@+id/wallet"
+                android:icon="@drawable/wallet"/>
+            <item android:title="History"
+                android:id="@+id/history"
+                android:icon="@drawable/history"/>
+        </menu>
+    </item>
+
+
+    <item android:title="App"
+        >
+        <menu>
+            <item android:title="Subscription"
+                android:id="@+id/subscription"
+                android:icon="@drawable/subscription"/>
+            <item android:title="Share"
+                android:id="@+id/share"
+                android:icon="@drawable/share"/>
+        </menu>
+
+
+
+    </item>
+
+</menu>
