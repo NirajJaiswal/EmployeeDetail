@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+   >
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/iv_employee_image"
+        tools:src="@drawable/india"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_employee_image"
+       android:text="Employee name: "
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_emp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below ="@+id/iv_employee_image"
+        android:layout_toEndOf="@+id/tv_emp"
+        tools:text="shreya"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_emp_name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_emp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Designation:"
+        android:id="@+id/tv_emp_d"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_emp_name"
+        android:layout_toEndOf="@+id/tv_emp_d"
+        tools:text="java"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_emp_designation"
+/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_emp_d"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Age:"
+        android:id="@+id/tv_emp_a"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_emp_designation"
+        android:layout_toEndOf="@id/tv_emp_a"
+        tools:text="23"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_emp_age"/>
+
+
+
+
+
+
+
+</RelativeLayout>
+

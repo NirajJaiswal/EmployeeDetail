@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.employeedetail.R;
+import com.example.employeedetail.listner.EmployeeData;
 import com.example.employeedetail.model.EmployeeDetails;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class EmployeeAdapter  extends RecyclerView.Adapter<EmployeeHolder> {
 
     private List<EmployeeDetails> mList;
     private Context mContext;
+
 
     public EmployeeAdapter(List<EmployeeDetails> mList, Context mContext) {
         this.mList = mList;

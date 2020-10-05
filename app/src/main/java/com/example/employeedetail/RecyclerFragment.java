@@ -53,16 +53,16 @@ public class RecyclerFragment extends Fragment {
 
         List<EmployeeDetails> mList=new ArrayList<>();
 
-       mList.add(new EmployeeDetails("Shreya","java",R.drawable.after));
-        mList.add(new EmployeeDetails("Niraj","Android",R.drawable.archer));
-        mList.add(new EmployeeDetails("Kumar","Dot Net",R.drawable.movie));
-       mList.add(new EmployeeDetails("Kumari","HTML",R.drawable.baby));
-        mList.add(new EmployeeDetails("Shree","Python",R.drawable.enormity));
-       mList.add(new EmployeeDetails("Ram","Data Science",R.drawable.it));
-       mList.add(new EmployeeDetails("Shyam","Machine Learning",R.drawable.joker));
-      mList.add(new EmployeeDetails("Ekta","Deep Learning",R.drawable.pamhir));
-        mList.add(new EmployeeDetails("Singh","Robotics",R.drawable.replicas));
-       mList.add(new EmployeeDetails("Aniket","MySql",R.drawable.star));
+       mList.add(new EmployeeDetails("Shreya","java",R.drawable.after,21));
+        mList.add(new EmployeeDetails("Niraj","Android",R.drawable.archer,20));
+        mList.add(new EmployeeDetails("Kumar","Dot Net",R.drawable.movie,19));
+       mList.add(new EmployeeDetails("Kumari","HTML",R.drawable.baby,18));
+        mList.add(new EmployeeDetails("Shree","Python",R.drawable.enormity,17));
+       mList.add(new EmployeeDetails("Ram","Data Science",R.drawable.it,16));
+       mList.add(new EmployeeDetails("Shyam","Machine Learning",R.drawable.joker,15));
+      mList.add(new EmployeeDetails("Ekta","Deep Learning",R.drawable.pamhir,14));
+        mList.add(new EmployeeDetails("Singh","Robotics",R.drawable.replicas,13));
+       mList.add(new EmployeeDetails("Aniket","MySql",R.drawable.star,12));
 
         return mList;
     }
