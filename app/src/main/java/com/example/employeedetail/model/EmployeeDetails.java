@@ -31,6 +31,16 @@ public class EmployeeDetails implements Serializable {
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeDetails{" +
+                "Name='" + Name + '\'' +
+                ", Designation='" + Designation + '\'' +
+                ", Profile=" + Profile +
+                ", age=" + age +
+                '}';
+    }
 }
 
 

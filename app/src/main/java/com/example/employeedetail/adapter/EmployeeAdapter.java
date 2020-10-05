@@ -18,7 +18,11 @@ public class EmployeeAdapter  extends RecyclerView.Adapter<EmployeeHolder> {
 
     private List<EmployeeDetails> mList;
     private Context mContext;
+    private EmployeeData employeeData;
 
+    public void setEmployeeData(EmployeeData employeeData) {
+        this.employeeData = employeeData;
+    }
 
     public EmployeeAdapter(List<EmployeeDetails> mList, Context mContext) {
         this.mList = mList;
@@ -35,10 +39,7 @@ public class EmployeeAdapter  extends RecyclerView.Adapter<EmployeeHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull EmployeeHolder holder, int position) {
-
-       holder.mProfileImageView.setImageResource(mList.get(position).getProfile());
-        holder.mNameTextView.setText(mList.get(position).getName());
-        holder.mDesignationTextView.setText(mList.get(position).getDesignation());
+        holder.onDataSet(mList.get(position),employeeData);
 
     }
 

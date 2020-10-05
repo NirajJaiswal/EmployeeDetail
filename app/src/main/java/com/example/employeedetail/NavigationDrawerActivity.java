@@ -17,9 +17,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.employeedetail.listner.DataSendEmployeeFragToActivity;
+import com.example.employeedetail.model.EmployeeDetails;
 import com.google.android.material.navigation.NavigationView;
 
-public class NavigationDrawerActivity extends AppCompatActivity {
+public class NavigationDrawerActivity extends AppCompatActivity implements DataSendEmployeeFragToActivity {
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private Toolbar toolbar;
@@ -79,7 +81,7 @@ private BottomSheetMedicine bottomSheetMedicine;
        // TestNav testNav=new TestNav();
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.f_layout,recyclerFragment,"hello");
+        fragmentTransaction.replace(R.id.f_layout,recyclerFragment,"hello");
         fragmentTransaction.commit();
     }
 
@@ -118,6 +120,28 @@ private BottomSheetMedicine bottomSheetMedicine;
                return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    @Override
+    public void getData(EmployeeDetails employeeDetails)
+    {
+        if(employeeDetails!=null)
+        {
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("data",employeeDetails);
+             EmployeeDetailFragment employeeDetailFragment=new EmployeeDetailFragment();
+             employeeDetailFragment.setArguments(bundle);
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.f_layout,employeeDetailFragment,"data_frag");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+        else
+        {
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
         }
 
     }

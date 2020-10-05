@@ -22,10 +22,19 @@ public class EmployeeHolder extends RecyclerView.ViewHolder {
         mNameTextView=itemView.findViewById(R.id.tv_employee_name);
         mDesignationTextView=itemView.findViewById(R.id.tv_employee_post);
         mProfileImageView=itemView.findViewById(R.id.iv_employee);
+    }
+    public  void onDataSet(final EmployeeDetails employeeDetails, final EmployeeData employeeData)
+    {
+        mNameTextView.setText(employeeDetails.getName());
+        mDesignationTextView.setText(employeeDetails.getDesignation());
+        mProfileImageView.setImageResource(employeeDetails.getProfile());
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                employeeData.onClick(employeeDetails);
 
-
-
-
+            }
+        });
     }
 
 
