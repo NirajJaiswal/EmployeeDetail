@@ -1,10 +1,12 @@
-package com.example.employeedetail;
+package com.example.employeedetail.fragcommunication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class FragActivity extends AppCompatActivity implements FragmentA.FragAListener,FragmentB.FragBListener{
+import com.example.employeedetail.R;
+
+public class FragActivity extends AppCompatActivity implements FragmentA.FragAListener, FragmentB.FragBListener {
     private FragmentA fragmentA;
     private FragmentB fragmentB;
 

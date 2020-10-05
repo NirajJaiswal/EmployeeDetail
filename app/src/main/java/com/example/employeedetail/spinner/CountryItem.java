@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.spinner;
 
 public class CountryItem {
     private String mCountryName;

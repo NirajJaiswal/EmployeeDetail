@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.employeedetail.model.Employee;
 
-public class EmployeeDetails extends AppCompatActivity {
+public class EmployeeDetailsActivity extends AppCompatActivity {
     private TextView empNameTextView;
     private TextView empIdTextView;
     private TextView empPostTextView;

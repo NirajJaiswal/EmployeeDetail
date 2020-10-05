@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements ListenData {
     @Override
     public void onClickCard(Employee employee) {
         if(employee!=null){
-            Intent intent=new Intent(this,EmployeeDetails.class);
+            Intent intent=new Intent(this, EmployeeDetailsActivity.class);
             intent.putExtra("details",employee);
             startActivity(intent);
 

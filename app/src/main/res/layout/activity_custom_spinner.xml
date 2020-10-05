@@ -6,7 +6,7 @@
        android:layout_height="wrap_content"
 
 
-       tools:context=".CustomSpinnerActivity">
+       tools:context=".spinner.CustomSpinnerActivity">
 
 
       <Spinner

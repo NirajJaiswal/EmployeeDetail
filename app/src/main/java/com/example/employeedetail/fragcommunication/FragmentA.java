@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.fragcommunication;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.employeedetail.R;
 
 public class FragmentA extends Fragment {
     private FragAListener listener;

@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.employeedetail.R;
 
 import java.util.ArrayList;
 import java.util.List;

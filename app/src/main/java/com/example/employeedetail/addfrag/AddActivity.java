@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.addfrag;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.employeedetail.R;
 
 public class AddActivity extends AppCompatActivity {
 

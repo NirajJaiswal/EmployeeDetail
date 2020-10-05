@@ -8,8 +8,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.employeedetail.adapter.StartRecyclerAdapter;
+import com.example.employeedetail.addfrag.AddActivity;
+import com.example.employeedetail.fragcommunication.FragActivity;
 import com.example.employeedetail.listner.ButtonListener;
 import com.example.employeedetail.model.ButtonModel;
+import com.example.employeedetail.navigation.NavigationActivity;
+import com.example.employeedetail.snackbar.SnackBarActivity;
+import com.example.employeedetail.spinner.CustomSpinnerActivity;
+import com.example.employeedetail.spinner.SpinnerActivity;
+import com.example.employeedetail.tab.TabLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,11 +66,11 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
                 startActivity(intent);
                 break;
             case 2:
-                 intent=new Intent(StartActivity.this,NavigationActivity.class);
+                 intent=new Intent(StartActivity.this, NavigationActivity.class);
                  startActivity(intent);
                  break;
             case 3:
-                intent =new Intent(StartActivity.this,AddActivity.class);
+                intent =new Intent(StartActivity.this, AddActivity.class);
                 String name="Shreya";
                 intent.putExtra("key_1",name);
                 startActivity(intent);
@@ -73,15 +80,15 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
                 startActivity(intent);
                 break;
              case 5:
-                 intent =new Intent(StartActivity.this,TabLayoutActivity.class);
+                 intent =new Intent(StartActivity.this, TabLayoutActivity.class);
                  startActivity(intent);
                  break;
             case 6:
-                intent =new Intent(StartActivity.this,SpinnerActivity.class);
+                intent =new Intent(StartActivity.this, SpinnerActivity.class);
                 startActivity(intent);
                 break;
             case 7:
-                intent=new Intent(StartActivity.this,CustomSpinnerActivity.class);
+                intent=new Intent(StartActivity.this, CustomSpinnerActivity.class);
                 startActivity(intent);
                 break;
             case 8:

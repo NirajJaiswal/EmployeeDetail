@@ -1,10 +1,11 @@
-package com.example.employeedetail;
+package com.example.employeedetail.tab;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.employeedetail.R;
 import com.example.employeedetail.adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 

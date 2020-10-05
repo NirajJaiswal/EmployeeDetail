@@ -11,13 +11,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".NavigationDrawerActivity"></activity>
         <activity android:name=".FloatingActionBarActivity" />
-        <activity android:name=".SnackBarActivity" />
-        <activity android:name=".CustomSpinnerActivity" />
-        <activity android:name=".SpinnerActivity" />
-        <activity android:name=".TabLayoutActivity" />
-        <activity android:name=".FragActivity" />
-        <activity android:name=".AddActivity" />
-        <activity android:name=".NavigationActivity" />
+        <activity android:name=".snackbar.SnackBarActivity" />
+        <activity android:name=".spinner.CustomSpinnerActivity" />
+        <activity android:name=".spinner.SpinnerActivity" />
+        <activity android:name=".tab.TabLayoutActivity" />
+        <activity android:name=".fragcommunication.FragActivity" />
+        <activity android:name=".addfrag.AddActivity" />
+        <activity android:name=".navigation.NavigationActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EmployeeDetails" />
+        <activity android:name=".EmployeeDetailsActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

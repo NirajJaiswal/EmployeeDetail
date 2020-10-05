@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.navigation;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class NavigationActivity extends AppCompatActivity implements FragmentNavigation.FragNavigationListener{
+import com.example.employeedetail.R;
+
+public class NavigationActivity extends AppCompatActivity implements FragmentNavigation.FragNavigationListener {
    private FragmentManager manager;
     private FragmentTransaction transaction;
     private FragmentNavigate fragmentNavigate;

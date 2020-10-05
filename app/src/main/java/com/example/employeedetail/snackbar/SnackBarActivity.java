@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.employeedetail.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class SnackBarActivity extends AppCompatActivity {
