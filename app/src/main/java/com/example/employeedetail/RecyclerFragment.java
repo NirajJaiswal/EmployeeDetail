@@ -115,10 +115,8 @@ public class RecyclerFragment extends Fragment {
             case R.id.item1:
 
                 Toast.makeText(getActivity(),"Item 1 selected",Toast.LENGTH_SHORT).show();
-
                 bottomSheetMedicine=new BottomSheetMedicine();
                 bottomSheetMedicine.show(getFragmentManager(),"bottomSheet");
-
                 return true;
             case R.id.item2:
                 recyclerView.setLayoutManager(!isListView ? new LinearLayoutManager(getActivity()) : new GridLayoutManager(getActivity(), 2));

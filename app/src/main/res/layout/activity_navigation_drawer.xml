@@ -25,7 +25,6 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-
                 android:id="@+id/toolbar"
                 android:theme="@style/AppTheme">
             </androidx.appcompat.widget.Toolbar>

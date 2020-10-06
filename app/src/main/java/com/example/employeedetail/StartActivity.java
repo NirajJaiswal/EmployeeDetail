@@ -2,8 +2,14 @@ package com.example.employeedetail;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,22 +29,29 @@ import java.util.List;
 
 public class StartActivity extends AppCompatActivity  implements ButtonListener {
    private RecyclerView recyclerView;
+    private Toolbar toolbar;
+    private Boolean isListView;
+    private  StartRecyclerAdapter startRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        isListView=true;
         initView();
         setValue();
     }
     private void setValue() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        StartRecyclerAdapter startRecyclerAdapter=new StartRecyclerAdapter(this,loadData());
+        startRecyclerAdapter=new StartRecyclerAdapter(this,loadData());
         recyclerView.setAdapter(startRecyclerAdapter);
     }
 
     private void initView() {
         recyclerView=findViewById(R.id.rv_button);
+        toolbar = findViewById(R.id.toolbar_start);
+        toolbar.setTitle("Start Screen");
+        setSupportActionBar(toolbar);
     }
     private List<ButtonModel> loadData()
     {
@@ -106,6 +119,41 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
             default:
 
         }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_start, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        if(isListView)
+        {
+            menu.findItem(R.id.view_type).setTitle("List View");
+            isListView=false;
+        }
+        else
+        {
+            menu.findItem(R.id.view_type).setTitle("Grid View");
+            isListView=true;
+
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.view_type) {
+            recyclerView.setLayoutManager(!isListView ? new LinearLayoutManager(this) : new GridLayoutManager(this, 3));
+            startRecyclerAdapter.notifyDataSetChanged();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 }
