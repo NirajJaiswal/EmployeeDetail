@@ -6,10 +6,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -28,6 +32,9 @@ public class RecyclerFragment extends Fragment {
     private RecyclerView recyclerView;
     private View view;
     private DataSendEmployeeFragToActivity dataSendEmployeeFragToActivity;
+    private BottomSheetMedicine bottomSheetMedicine;
+    private Boolean isListView;
+    private  EmployeeAdapter employeeAdapter;
 
 
 
@@ -35,9 +42,16 @@ public class RecyclerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          view=inflater.inflate(R.layout.fragment_recycler_fragment,container,false);
+         isListView=true;
         return view;
 
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -49,7 +63,7 @@ public class RecyclerFragment extends Fragment {
 
     private void setValue() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        EmployeeAdapter employeeAdapter=new EmployeeAdapter(loadDetails(),getActivity());
+        employeeAdapter=new EmployeeAdapter(loadDetails(),getActivity());
         recyclerView.setAdapter(employeeAdapter);
         employeeAdapter.setEmployeeData(new EmployeeData() {
             @Override
@@ -74,7 +88,6 @@ public class RecyclerFragment extends Fragment {
       mList.add(new EmployeeDetails("Ekta","Deep Learning",R.drawable.pamhir,14));
         mList.add(new EmployeeDetails("Singh","Robotics",R.drawable.replicas,13));
        mList.add(new EmployeeDetails("Aniket","MySql",R.drawable.star,12));
-
         return mList;
     }
 
@@ -87,6 +100,50 @@ public class RecyclerFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         dataSendEmployeeFragToActivity= (DataSendEmployeeFragToActivity) context;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_list, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.item1:
+
+                Toast.makeText(getActivity(),"Item 1 selected",Toast.LENGTH_SHORT).show();
+
+                bottomSheetMedicine=new BottomSheetMedicine();
+                bottomSheetMedicine.show(getFragmentManager(),"bottomSheet");
+
+                return true;
+            case R.id.item2:
+                recyclerView.setLayoutManager(!isListView ? new LinearLayoutManager(getActivity()) : new GridLayoutManager(getActivity(), 2));
+                employeeAdapter.notifyDataSetChanged();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if(isListView)
+        {
+            menu.findItem(R.id.item2).setTitle("List View");
+            isListView=false;
+        }
+        else
+        {
+            menu.findItem(R.id.item2).setTitle("Grid View");
+            isListView=true;
+
+        }
     }
 }
 

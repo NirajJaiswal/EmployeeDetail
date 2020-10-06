@@ -26,7 +26,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-private BottomSheetMedicine bottomSheetMedicine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,35 +94,7 @@ private BottomSheetMedicine bottomSheetMedicine;
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_list, menu);
-        return true;
 
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.item1:
-
-                Toast.makeText(this,"Item 1 selected",Toast.LENGTH_SHORT).show();
-
-                bottomSheetMedicine=new BottomSheetMedicine();
-                bottomSheetMedicine.show(getSupportFragmentManager(),"bottomSheet");
-
-                return true;
-            case R.id.item2:
-                Toast.makeText(this,"Item 2 selected",Toast.LENGTH_SHORT).show();
-               return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
 
     @Override
     public void getData(EmployeeDetails employeeDetails)
