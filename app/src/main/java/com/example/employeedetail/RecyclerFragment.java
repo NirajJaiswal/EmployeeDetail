@@ -88,6 +88,7 @@ public class RecyclerFragment extends Fragment {
       mList.add(new EmployeeDetails("Ekta","Deep Learning",R.drawable.pamhir,14));
         mList.add(new EmployeeDetails("Singh","Robotics",R.drawable.replicas,13));
        mList.add(new EmployeeDetails("Aniket","MySql",R.drawable.star,12));
+
         return mList;
     }
 

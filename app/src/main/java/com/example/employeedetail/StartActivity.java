@@ -66,6 +66,7 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
         list.add(new ButtonModel(8,"Snack Bar"));
         list.add(new ButtonModel(9,"Floating Action Bar"));
         list.add(new ButtonModel(10,"Navigation Drawer"));
+        list.add(new ButtonModel(11,"Cricket"));
         return list;
     }
 
@@ -114,6 +115,10 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
                 break;
             case 10:
                 intent=new Intent(StartActivity.this,NavigationDrawerActivity.class);
+                startActivity(intent);
+                break;
+            case 11:
+                intent=new Intent(StartActivity.this,CricketActivity.class);
                 startActivity(intent);
                 break;
             default:
