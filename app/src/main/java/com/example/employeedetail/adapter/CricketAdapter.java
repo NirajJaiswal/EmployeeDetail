@@ -4,21 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.employeedetail.R;
 import com.example.employeedetail.listner.CricketerData;
 import com.example.employeedetail.model.CricketerDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CricketAdapter extends RecyclerView.Adapter<CricketHolder> {
+public class CricketAdapter extends RecyclerView.Adapter<CricketHolder> implements Filterable {
     private List<CricketerDetails> cricketerDetails;
     private Context mContext;
     private CricketerData cricketerData;
+    private List<CricketerDetails> fullCricketerDetails;
 
    public void setCricketerData(CricketerData cricketerData){
        this.cricketerData=cricketerData;
@@ -27,7 +30,7 @@ public class CricketAdapter extends RecyclerView.Adapter<CricketHolder> {
     public CricketAdapter(List<CricketerDetails> cricketerDetails, Context mContext) {
         this.cricketerDetails = cricketerDetails;
         this.mContext = mContext;
-        this.cricketerData = cricketerData;
+        fullCricketerDetails=new ArrayList<>(cricketerDetails);
     }
 
 
@@ -51,4 +54,42 @@ public class CricketAdapter extends RecyclerView.Adapter<CricketHolder> {
     public int getItemCount() {
         return cricketerDetails.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+    private Filter filter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint)
+        {
+            List<CricketerDetails>filterCricketerList=new ArrayList<>();
+            if(constraint==null || constraint.length()==0)
+            {
+                filterCricketerList.addAll(fullCricketerDetails);
+            }
+            else
+            {
+                String filterItem=constraint.toString().toLowerCase().trim();
+                for(CricketerDetails cricketerDetails:fullCricketerDetails)
+                {
+                    if(cricketerDetails.getCricketerFullName().toLowerCase().contains(filterItem)||cricketerDetails.getCricketerRole().toLowerCase().contains(filterItem))
+                    {
+                        filterCricketerList.add(cricketerDetails);
+                    }
+                }
+            }
+            FilterResults results=new FilterResults();
+            results.values=filterCricketerList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results)
+        {
+            cricketerDetails.clear();
+            cricketerDetails.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item android:id="@+id/cricket_item"
-    android:title="Grid View"
+    android:title="@string/grid_view"
     app:showAsAction="never"/>
+    <item
+        android:id="@+id/search_cricket"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="@string/search"
+        />
 </menu>
