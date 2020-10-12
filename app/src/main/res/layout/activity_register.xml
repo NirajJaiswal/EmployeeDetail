@@ -119,7 +119,7 @@
         android:layout_marginLeft="90dp"
         android:layout_marginTop="510dp"
         android:layout_marginBottom="50dp"
-        android:text="Already have an account?"
+        android:text="Already have an account? "
         android:textColor="#1565c0" />
     <TextView
         android:id="@+id/tv_sign_register"
@@ -128,6 +128,6 @@
         android:layout_marginLeft="260dp"
         android:layout_marginTop="510dp"
         android:text="Sign In"
-        android:textColor="#1565c0" />
+        android:textColor="@android:color/black" />
 </androidx.cardview.widget.CardView>
 </LinearLayout>
