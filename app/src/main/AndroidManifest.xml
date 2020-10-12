@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CricketActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".CricketActivity" />
         <activity android:name=".NavigationDrawerActivity" />
         <activity android:name=".FloatingActionBarActivity" />
         <activity android:name=".snackbar.SnackBarActivity" />

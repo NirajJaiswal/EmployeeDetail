@@ -86,7 +86,6 @@ public class CricketFragment extends Fragment {
     private List<CricketerDetails> cricketerInfo() {
         cricketerDetails.add(new CricketerDetails("Mahinder Singh Dhoni", "Batsman", R.drawable.dhoni, 39, "India"));
         cricketerDetails.add(new CricketerDetails("Ben Stokes", "All rounder", R.drawable.benstokes, 29, "England"));
-
         cricketerDetails.add(new CricketerDetails("Lasith Malinga", "Bowler", R.drawable.lasith, 37, "Sri Lanka"));
         cricketerDetails.add(new CricketerDetails("Shami", "Bowler", R.drawable.shami, 34, "India"));
         cricketerDetails.add(new CricketerDetails("Steve Smith", "Batsman", R.drawable.smith, 34, "Australia"));
