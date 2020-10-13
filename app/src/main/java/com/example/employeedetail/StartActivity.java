@@ -25,6 +25,7 @@ import com.example.employeedetail.snackbar.SnackBarActivity;
 import com.example.employeedetail.spinner.CustomSpinnerActivity;
 import com.example.employeedetail.spinner.SpinnerActivity;
 import com.example.employeedetail.tab.TabLayoutActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -174,6 +175,11 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
             recyclerView.setLayoutManager(!isListView ? new LinearLayoutManager(this) : new GridLayoutManager(this, 3));
             startRecyclerAdapter.notifyDataSetChanged();
             return true;
+        }
+        else if(item.getItemId()==R.id.sign_out){
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
         }
         return super.onOptionsItemSelected(item);
 
