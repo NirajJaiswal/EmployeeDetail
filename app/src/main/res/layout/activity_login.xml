@@ -6,118 +6,124 @@
     android:layout_height="match_parent"
     android:background="@drawable/layout_background"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".LoginActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_login"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:elevation="2dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="20dp">
-
-        <LinearLayout
+        android:layout_height="match_parent"
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="@string/login"
-                android:textColor="#09a6f6"
-                android:textSize="30sp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/e_mail"
-                android:textColor="#1565c0"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/et_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:drawableEnd="@drawable/ic_email"
-                android:hint="@string/enter_your_email"
-                android:inputType="textEmailAddress"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/password"
-                android:textColor="#1565c0"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:drawableEnd="@drawable/ic_pass"
-                android:hint="@string/enter_your_password"
-                android:inputType="textPassword"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button_login"
-                android:text="Login"
-                android:textColor="@android:color/white" />
-
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="20dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_account"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="50dp"
-                    android:text="Don't have an account?"
-                    android:textColor="#1565c0" />
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textColor="#09a6f6"
+                    android:textSize="30sp"
+                    android:textStyle="italic" />
 
                 <TextView
-                    android:id="@+id/tv_sign"
+                    android:id="@+id/tv_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/e_mail"
+                    android:textColor="#1565c0"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:drawableEnd="@drawable/ic_email"
+                    android:hint="@string/enter_your_email"
+                    android:inputType="textEmailAddress"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sign Up"
-                    android:textColor="@android:color/black" />
+                    android:layout_marginStart="10dp"
+                    android:text="@string/password"
+                    android:textColor="#1565c0"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:drawableEnd="@drawable/ic_pass"
+                    android:hint="@string/enter_your_password"
+                    android:inputType="textPassword"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_login"
+                    android:text="Login"
+                    android:textColor="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="50dp"
+                        android:text="Don't have an account?"
+                        android:textColor="#1565c0" />
+
+                    <TextView
+                        android:id="@+id/tv_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/login_progress"
+                    android:visibility="gone"
+                    />
+
             </LinearLayout>
 
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/login_progress"
-                android:visibility="gone"
-                />
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
