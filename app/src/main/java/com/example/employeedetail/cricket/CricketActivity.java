@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.cricket;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.employeedetail.R;
 import com.example.employeedetail.listner.DataSendCricketerFragToActivity;
 import com.example.employeedetail.model.CricketerDetails;
 

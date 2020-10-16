@@ -10,13 +10,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.employeedetail.employee_detail.EmployeeDetailFragment;
+import com.example.employeedetail.employee_detail.RecyclerFragment;
 import com.example.employeedetail.listner.DataSendEmployeeFragToActivity;
 import com.example.employeedetail.model.EmployeeDetails;
 import com.google.android.material.navigation.NavigationView;

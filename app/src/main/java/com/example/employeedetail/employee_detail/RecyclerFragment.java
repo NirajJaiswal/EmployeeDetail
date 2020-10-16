@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.employee_detail;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.employeedetail.R;
 import com.example.employeedetail.adapter.EmployeeAdapter;
+import com.example.employeedetail.employee_detail.BottomSheetMedicine;
 import com.example.employeedetail.listner.DataSendEmployeeFragToActivity;
 import com.example.employeedetail.listner.EmployeeData;
 import com.example.employeedetail.model.EmployeeDetails;

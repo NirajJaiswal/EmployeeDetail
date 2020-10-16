@@ -17,10 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.employeedetail.adapter.StartRecyclerAdapter;
 import com.example.employeedetail.addfrag.AddActivity;
+import com.example.employeedetail.cricket.CricketActivity;
+import com.example.employeedetail.employee_detail.MainActivity;
 import com.example.employeedetail.fragcommunication.FragActivity;
 import com.example.employeedetail.listner.ButtonListener;
 import com.example.employeedetail.model.ButtonModel;
 import com.example.employeedetail.navigation.NavigationActivity;
+import com.example.employeedetail.popularmovie.view.PopularMovieActivity;
+import com.example.employeedetail.retrofit.view.RetrofitMainScreenActivity;
 import com.example.employeedetail.snackbar.SnackBarActivity;
 import com.example.employeedetail.spinner.CustomSpinnerActivity;
 import com.example.employeedetail.spinner.SpinnerActivity;
@@ -40,12 +44,12 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        isListView=true;
+        isListView=false;
         initView();
         setValue();
     }
     private void setValue() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         startRecyclerAdapter=new StartRecyclerAdapter(this,loadData());
         recyclerView.setAdapter(startRecyclerAdapter);
     }
@@ -70,6 +74,8 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
         list.add(new ButtonModel(9,"Floating Action Bar"));
         list.add(new ButtonModel(10,"Navigation Drawer"));
         list.add(new ButtonModel(11,"Cricket"));
+        list.add(new ButtonModel(12,"Retrofit"));
+        list.add(new ButtonModel(13,"PopularMovie"));
         return list;
     }
 
@@ -79,7 +85,7 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
         switch (id)
         {
             case 1:
-                 intent=new Intent(StartActivity.this,MainActivity.class);
+                 intent=new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
             case 2:
@@ -121,7 +127,15 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
                 startActivity(intent);
                 break;
             case 11:
-                intent=new Intent(StartActivity.this,CricketActivity.class);
+                intent=new Intent(StartActivity.this, CricketActivity.class);
+                startActivity(intent);
+                break;
+            case 12:
+                intent=new Intent(StartActivity.this, RetrofitMainScreenActivity.class);
+                startActivity(intent);
+                break;
+            case 13:
+                intent=new Intent(StartActivity.this, PopularMovieActivity.class);
                 startActivity(intent);
                 break;
             default:

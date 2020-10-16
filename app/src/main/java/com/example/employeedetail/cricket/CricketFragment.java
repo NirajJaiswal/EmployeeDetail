@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.cricket;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.employeedetail.R;
 import com.example.employeedetail.adapter.CricketAdapter;
 import com.example.employeedetail.listner.CricketerData;
 import com.example.employeedetail.listner.DataSendCricketerFragToActivity;

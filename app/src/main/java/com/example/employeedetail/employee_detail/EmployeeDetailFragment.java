@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.employee_detail;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

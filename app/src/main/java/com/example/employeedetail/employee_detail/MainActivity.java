@@ -1,4 +1,4 @@
-package com.example.employeedetail;
+package com.example.employeedetail.employee_detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.employeedetail.R;
 import com.example.employeedetail.adapter.RecyclerAdapter;
 import com.example.employeedetail.listner.ListenData;
 import com.example.employeedetail.model.Employee;

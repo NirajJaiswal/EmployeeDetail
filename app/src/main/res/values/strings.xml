@@ -19,4 +19,8 @@
     <string name="enter_your_email">enter your email</string>
     <string name="e_mail">E-mail</string>
     <string name="login">LOGIN</string>
+
+    <string name="api_key">14f64a47fecb50d5f4498cff459947a6</string>
+    <string name="image_of_movie">image_of_movie</string>
+    <string name="list_view">List View</string>
 </resources>
