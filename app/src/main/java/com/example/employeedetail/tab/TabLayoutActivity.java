@@ -18,13 +18,8 @@ private ViewPager viewPager;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_layout);
-
-
         tabLayout=(TabLayout) findViewById(R.id.tabLayout);
         viewPager=(ViewPager) findViewById(R.id.myViewPager);
-
-
-
         setupViewPager(viewPager);
 
         tabLayout.setupWithViewPager(viewPager);

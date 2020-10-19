@@ -4,14 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.employeedetail.R;
+import com.example.employeedetail.databinding.MoviePopularListBindingImpl;
 import com.example.employeedetail.popularmovie.listener.MovieListener;
 import com.example.employeedetail.popularmovie.model.Movie;
 
@@ -32,8 +31,8 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
     @NonNull
     @Override
     public PopularMovieHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.movie_popular_list,parent,false);
-        return new PopularMovieHolder(view);
+        MoviePopularListBindingImpl moviePopularListBinding= DataBindingUtil.inflate(LayoutInflater.from(context),R.layout.movie_popular_list,parent,false);
+        return new PopularMovieHolder(moviePopularListBinding);
     }
 
     @Override
@@ -51,26 +50,17 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
 
     public  static class PopularMovieHolder extends RecyclerView.ViewHolder
     {
-        public TextView movieTitle,rating;
-        public ImageView movieImage;
+     private MoviePopularListBindingImpl binding;
 
-        public PopularMovieHolder(@NonNull View itemView) {
-            super(itemView);
-            movieImage=itemView.findViewById(R.id.iv_popular_movie_pic);
-            movieTitle=itemView.findViewById(R.id.tv_movie_title);
-            rating=itemView.findViewById(R.id.tv_rating);
-
+        public PopularMovieHolder(@NonNull MoviePopularListBindingImpl moviePopularListBinding) {
+            super(moviePopularListBinding.getRoot());
+            this.binding=moviePopularListBinding;
         }
 
         public void movieData(Movie movie,MovieListener listener) {
-            movieTitle.setText(movie.getOriginalTitle());
-            rating.setText(String.valueOf(movie.getVoteAverage()));
-            String imagePath="https://image.tmdb.org/t/p/w500"+movie.getPosterPath();
-            Glide.with(itemView.getContext())
-                    .load(imagePath)
-                    .placeholder(R.drawable.loading)
-                    .into(movieImage);
-            itemView.setOnClickListener(new View.OnClickListener() {
+
+            binding.setMovie(movie);
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onMovieClick(movie);

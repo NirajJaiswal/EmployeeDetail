@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <data
+        >
+        <variable
+            name="movie"
+            type="com.example.employeedetail.popularmovie.model.Movie" />
+    </data>
+
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".popularmovie.view.MovieDetailActivity"
@@ -25,6 +35,7 @@
                 android:id="@+id/iv_movie_large"
                 android:scaleType="centerInside"
                 android:layout_marginTop="10dp"
+                bind:posterPath="@{movie.posterPath}"
                 android:contentDescription="@string/movie_image" />
             <TextView
                 android:layout_width="match_parent"
@@ -32,6 +43,7 @@
                 android:id="@+id/tv_movie_detail_title"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:text="@{movie.originalTitle}"
                 android:textColor="@android:color/black"
                 android:layout_margin="10dp"/>
             <TextView
@@ -40,6 +52,7 @@
                 android:id="@+id/tv_movie_release_date"
                 android:layout_margin="10dp"
                 android:textSize="16sp"
+                android:text="@{movie.releaseDate}"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -47,9 +60,19 @@
                 android:id="@+id/tv_movie_rating"
                 android:layout_margin="10dp"
                 android:textSize="16sp"
+                android:text="@{String.valueOf(movie.voteAverage)}"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_movie_overview"
+                android:layout_margin="10dp"
+                android:textSize="14sp"
+                android:text="@{movie.overview}"
                 />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 
 </RelativeLayout>
+</layout>

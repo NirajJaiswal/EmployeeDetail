@@ -8,42 +8,45 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.employeedetail.R;
+import com.example.employeedetail.databinding.ActivityPopularMovieBinding;
 import com.example.employeedetail.popularmovie.adapter.PopularMovieAdapter;
 import com.example.employeedetail.popularmovie.listener.MovieListener;
 import com.example.employeedetail.popularmovie.model.Movie;
-import com.example.employeedetail.popularmovie.model.MovieDbResponse;
-import com.example.employeedetail.popularmovie.service.PopularMovieService;
-import com.example.employeedetail.popularmovie.service.RetrofitMovieInstance;
+import com.example.employeedetail.popularmovie.viewmodel.PopularMovieViewModel;
 
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.List;
 
 public class PopularMovieActivity extends AppCompatActivity implements MovieListener {
     private ArrayList<Movie>movieArrayList;
     private RecyclerView recyclerView;
     private PopularMovieAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private PopularMovieViewModel viewModel;
+    private ActivityPopularMovieBinding activityPopularMovieBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_movie);
 
+        activityPopularMovieBinding= DataBindingUtil.setContentView(this,R.layout.activity_popular_movie);
+        viewModel=ViewModelProviders.of(this).get(PopularMovieViewModel.class);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Popular Movie");
         getPopularMovie();
-        swipeRefreshLayout=findViewById(R.id.swipe_layout);
+        swipeRefreshLayout=activityPopularMovieBinding.swipeLayout;
         swipeRefreshLayout.setColorSchemeColors(getColor(R.color.colorPrimaryDark));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -63,27 +66,25 @@ public class PopularMovieActivity extends AppCompatActivity implements MovieList
     }
 
     private void getPopularMovie() {
-        PopularMovieService popularMovieService= RetrofitMovieInstance.getService();
-        Call<MovieDbResponse>call=popularMovieService.getPopularMovie(getString(R.string.api_key));
-        call.enqueue(new Callback<MovieDbResponse>() {
-            @Override
-            public void onResponse(Call<MovieDbResponse> call, Response<MovieDbResponse> response) {
-                if(response.body()!=null && response.body().getMovies()!=null)
-                {
-                   movieArrayList= (ArrayList<Movie>) response.body().getMovies();
-                   getRecyclerView();
-                }
-            }
 
+        viewModel.getListLiveDataMovie().observe(this, new Observer<List<Movie>>() {
             @Override
-            public void onFailure(Call<MovieDbResponse> call, Throwable t) {
+            public void onChanged(List<Movie> movies) {
+                movieArrayList= (ArrayList<Movie>) movies;
+                getRecyclerView();
 
             }
         });
-    }
+
+
+
+            }
+
+
+
 
     private void getRecyclerView() {
-        recyclerView=findViewById(R.id.rv_popular_movie);
+        recyclerView=activityPopularMovieBinding.rvPopularMovie;
         adapter=new PopularMovieAdapter(movieArrayList,this);
 
         if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT)
