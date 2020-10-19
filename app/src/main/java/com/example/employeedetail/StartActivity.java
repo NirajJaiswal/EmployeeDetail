@@ -1,11 +1,14 @@
 package com.example.employeedetail;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,108 +37,108 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartActivity extends AppCompatActivity  implements ButtonListener {
-   private RecyclerView recyclerView;
+public class StartActivity extends AppCompatActivity implements ButtonListener {
+    private RecyclerView recyclerView;
     private Toolbar toolbar;
     private Boolean isListView;
-    private  StartRecyclerAdapter startRecyclerAdapter;
+    private StartRecyclerAdapter startRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        isListView=false;
+        isListView = false;
         initView();
         setValue();
     }
+
     private void setValue() {
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        startRecyclerAdapter=new StartRecyclerAdapter(this,loadData());
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        startRecyclerAdapter = new StartRecyclerAdapter(this, loadData());
         recyclerView.setAdapter(startRecyclerAdapter);
     }
 
     private void initView() {
-        recyclerView=findViewById(R.id.rv_button);
+        recyclerView = findViewById(R.id.rv_button);
         toolbar = findViewById(R.id.toolbar_start);
         toolbar.setTitle("Start Screen");
         setSupportActionBar(toolbar);
     }
-    private List<ButtonModel> loadData()
-    {
-        List<ButtonModel>list=new ArrayList<>();
-        list.add(new ButtonModel(1,"Recycler View"));
-        list.add(new ButtonModel(2,"Fragment"));
-        list.add(new ButtonModel(3,"Add Fragment"));
-        list.add(new ButtonModel(4,"Fragment Communication"));
-        list.add(new ButtonModel(5,"Tab Layout"));
-        list.add(new ButtonModel(6,"Spinner"));
-        list.add(new ButtonModel(7,"Custom Spinner"));
-        list.add(new ButtonModel(8,"Snack Bar"));
-        list.add(new ButtonModel(9,"Floating Action Bar"));
-        list.add(new ButtonModel(10,"Navigation Drawer"));
-        list.add(new ButtonModel(11,"Cricket"));
-        list.add(new ButtonModel(12,"Retrofit"));
-        list.add(new ButtonModel(13,"PopularMovie"));
+
+    private List<ButtonModel> loadData() {
+        List<ButtonModel> list = new ArrayList<>();
+        list.add(new ButtonModel(1, "Recycler View"));
+        list.add(new ButtonModel(2, "Fragment"));
+        list.add(new ButtonModel(3, "Add Fragment"));
+        list.add(new ButtonModel(4, "Fragment Communication"));
+        list.add(new ButtonModel(5, "Tab Layout"));
+        list.add(new ButtonModel(6, "Spinner"));
+        list.add(new ButtonModel(7, "Custom Spinner"));
+        list.add(new ButtonModel(8, "Snack Bar"));
+        list.add(new ButtonModel(9, "Floating Action Bar"));
+        list.add(new ButtonModel(10, "Navigation Drawer"));
+        list.add(new ButtonModel(11, "Cricket"));
+        list.add(new ButtonModel(12, "Retrofit"));
+        list.add(new ButtonModel(13, "PopularMovie"));
         return list;
     }
 
     @Override
     public void clickButton(int id) {
         Intent intent;
-        switch (id)
-        {
+        switch (id) {
             case 1:
-                 intent=new Intent(StartActivity.this, MainActivity.class);
+                intent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
             case 2:
-                 intent=new Intent(StartActivity.this, NavigationActivity.class);
-                 startActivity(intent);
-                 break;
+                intent = new Intent(StartActivity.this, NavigationActivity.class);
+                startActivity(intent);
+                break;
             case 3:
-                intent =new Intent(StartActivity.this, AddActivity.class);
-                String name="Shreya";
-                intent.putExtra("key_1",name);
+                intent = new Intent(StartActivity.this, AddActivity.class);
+                String name = "Shreya";
+                intent.putExtra("key_1", name);
                 startActivity(intent);
                 break;
             case 4:
-                intent=new Intent(StartActivity.this, FragActivity.class);
+                intent = new Intent(StartActivity.this, FragActivity.class);
                 startActivity(intent);
                 break;
-             case 5:
-                 intent =new Intent(StartActivity.this, TabLayoutActivity.class);
-                 startActivity(intent);
-                 break;
+            case 5:
+                intent = new Intent(StartActivity.this, TabLayoutActivity.class);
+                startActivity(intent);
+                break;
             case 6:
-                intent =new Intent(StartActivity.this, SpinnerActivity.class);
+                intent = new Intent(StartActivity.this, SpinnerActivity.class);
                 startActivity(intent);
                 break;
             case 7:
-                intent=new Intent(StartActivity.this, CustomSpinnerActivity.class);
+                intent = new Intent(StartActivity.this, CustomSpinnerActivity.class);
                 startActivity(intent);
                 break;
             case 8:
-                intent=new Intent(StartActivity.this, SnackBarActivity.class);
+                intent = new Intent(StartActivity.this, SnackBarActivity.class);
                 startActivity(intent);
                 break;
             case 9:
-                intent=new Intent(StartActivity.this, FloatingActionBarActivity.class);
+                intent = new Intent(StartActivity.this, FloatingActionBarActivity.class);
                 startActivity(intent);
                 break;
             case 10:
-                intent=new Intent(StartActivity.this,NavigationDrawerActivity.class);
+                intent = new Intent(StartActivity.this, NavigationDrawerActivity.class);
                 startActivity(intent);
                 break;
             case 11:
-                intent=new Intent(StartActivity.this, CricketActivity.class);
+                intent = new Intent(StartActivity.this, CricketActivity.class);
                 startActivity(intent);
                 break;
             case 12:
-                intent=new Intent(StartActivity.this, RetrofitMainScreenActivity.class);
+                intent = new Intent(StartActivity.this, RetrofitMainScreenActivity.class);
                 startActivity(intent);
                 break;
             case 13:
-                intent=new Intent(StartActivity.this, PopularMovieActivity.class);
+                intent = new Intent(StartActivity.this, PopularMovieActivity.class);
                 startActivity(intent);
                 break;
             default:
@@ -148,8 +151,8 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_start, menu);
-        MenuItem searchItem=menu.findItem(R.id.search_menu);
-        SearchView searchView=(SearchView)searchItem.getActionView();
+        MenuItem searchItem = menu.findItem(R.id.search_menu);
+        SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -167,21 +170,18 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu)
-    {
-        if(isListView)
-        {
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (isListView) {
             menu.findItem(R.id.view_type).setTitle("List View");
-            isListView=false;
-        }
-        else
-        {
+            isListView = false;
+        } else {
             menu.findItem(R.id.view_type).setTitle("Grid View");
-            isListView=true;
+            isListView = true;
 
         }
         return super.onPrepareOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -189,13 +189,47 @@ public class StartActivity extends AppCompatActivity  implements ButtonListener 
             recyclerView.setLayoutManager(!isListView ? new LinearLayoutManager(this) : new GridLayoutManager(this, 3));
             startRecyclerAdapter.notifyDataSetChanged();
             return true;
-        }
-        else if(item.getItemId()==R.id.sign_out){
+        } else if (item.getItemId() == R.id.sign_out) {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             finish();
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("Exit");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Do you really want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, close
+                        // current activity
+                        StartActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        Toast.makeText(StartActivity.this, "i wanna stay on this page", Toast.LENGTH_LONG).show();
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 }

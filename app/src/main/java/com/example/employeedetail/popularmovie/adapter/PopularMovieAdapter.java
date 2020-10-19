@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.employeedetail.R;
+import com.example.employeedetail.popularmovie.listener.MovieListener;
 import com.example.employeedetail.popularmovie.model.Movie;
 
 import java.util.ArrayList;
@@ -20,10 +21,12 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
 {
     private ArrayList<Movie>movies;
     private Context context;
+    private MovieListener movieListener;
 
     public PopularMovieAdapter(ArrayList<Movie> movies, Context context) {
         this.movies = movies;
         this.context = context;
+        this.movieListener= (MovieListener) context;
     }
 
     @NonNull
@@ -37,7 +40,7 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
     public void onBindViewHolder(@NonNull PopularMovieHolder holder, int position)
     {
         Movie movie=movies.get(position);
-        holder.movieData(movie);
+        holder.movieData(movie,movieListener);
 
     }
 
@@ -59,7 +62,7 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
 
         }
 
-        public void movieData(Movie movie) {
+        public void movieData(Movie movie,MovieListener listener) {
             movieTitle.setText(movie.getOriginalTitle());
             rating.setText(String.valueOf(movie.getVoteAverage()));
             String imagePath="https://image.tmdb.org/t/p/w500"+movie.getPosterPath();
@@ -67,7 +70,12 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
                     .load(imagePath)
                     .placeholder(R.drawable.loading)
                     .into(movieImage);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onMovieClick(movie);
+                }
+            });
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.example.employeedetail.popularmovie.view;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.employeedetail.R;
 import com.example.employeedetail.popularmovie.adapter.PopularMovieAdapter;
+import com.example.employeedetail.popularmovie.listener.MovieListener;
 import com.example.employeedetail.popularmovie.model.Movie;
 import com.example.employeedetail.popularmovie.model.MovieDbResponse;
 import com.example.employeedetail.popularmovie.service.PopularMovieService;
@@ -23,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PopularMovieActivity extends AppCompatActivity {
+public class PopularMovieActivity extends AppCompatActivity implements MovieListener {
     private ArrayList<Movie>movieArrayList;
     private RecyclerView recyclerView;
     private PopularMovieAdapter adapter;
@@ -34,6 +38,10 @@ public class PopularMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_movie);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("Popular Movie");
         getPopularMovie();
         swipeRefreshLayout=findViewById(R.id.swipe_layout);
         swipeRefreshLayout.setColorSchemeColors(getColor(R.color.colorPrimaryDark));
@@ -76,7 +84,7 @@ public class PopularMovieActivity extends AppCompatActivity {
 
     private void getRecyclerView() {
         recyclerView=findViewById(R.id.rv_popular_movie);
-        adapter=new PopularMovieAdapter(movieArrayList,getApplicationContext());
+        adapter=new PopularMovieAdapter(movieArrayList,this);
 
         if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT)
         {
@@ -91,5 +99,23 @@ public class PopularMovieActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
 
+    }
+
+    @Override
+    public void onMovieClick(Movie movie)
+    {
+        if(movie !=null)
+        {
+            Toast.makeText(this, movie.getTitle(), Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(PopularMovieActivity.this,MovieDetailActivity.class);
+            intent.putExtra("movie_tag",movie);
+            startActivity(intent);
+        }
+
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

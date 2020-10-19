@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Movie implements Parcelable
@@ -40,7 +41,7 @@ private String originalLanguage;
 private String originalTitle;
 @SerializedName("genre_ids")
 @Expose
-private List<Integer> genreIds = null;
+private List<Integer> genreIds = new ArrayList<>();
 @SerializedName("title")
 @Expose
 private String title;
@@ -80,7 +81,7 @@ this.adult = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
 this.backdropPath = ((String) in.readValue((String.class.getClassLoader())));
 this.originalLanguage = ((String) in.readValue((String.class.getClassLoader())));
 this.originalTitle = ((String) in.readValue((String.class.getClassLoader())));
-in.readList(this.genreIds, (java.lang.Integer.class.getClassLoader()));
+in.readList(this.genreIds, (Integer.class.getClassLoader()));
 this.title = ((String) in.readValue((String.class.getClassLoader())));
 this.voteAverage = ((Double) in.readValue((Double.class.getClassLoader())));
 this.overview = ((String) in.readValue((String.class.getClassLoader())));

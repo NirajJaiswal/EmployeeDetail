@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:id="@+id/swipe_layout">
+    android:id="@+id/swipe_layout"
+    android:layout_centerVertical="true">
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".popularmovie.view.PopularMovieActivity">
+        tools:context=".popularmovie.view.PopularMovieActivity"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_popular_movie"
