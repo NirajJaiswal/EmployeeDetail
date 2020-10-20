@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -15,10 +17,13 @@ import com.example.employeedetail.popularmovie.listener.MovieListener;
 import com.example.employeedetail.popularmovie.model.Movie;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapter.PopularMovieHolder>
+public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapter.PopularMovieHolder> implements Filterable
 {
     private ArrayList<Movie>movies;
+    private ArrayList<Movie>moviesListFull;
     private Context context;
     private MovieListener movieListener;
 
@@ -26,6 +31,7 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         this.movies = movies;
         this.context = context;
         this.movieListener= (MovieListener) context;
+        moviesListFull=new ArrayList<>(movies);
     }
 
     @NonNull
@@ -68,4 +74,39 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
             });
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return movieFilter;
+    }
+
+    private Filter movieFilter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Movie> filteredMovieList=new ArrayList<>();
+            if(constraint ==null || constraint.length() ==0){
+                filteredMovieList.addAll(moviesListFull);
+
+            }
+            else{
+                String movieFilterPattern=constraint.toString().toLowerCase().trim();
+                for(Movie item:moviesListFull){
+                    if(item.getTitle().toLowerCase().contains(movieFilterPattern)){
+                        filteredMovieList.add(item);
+                    }
+                }
+            }
+            FilterResults results=new FilterResults();
+            results.values=filteredMovieList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            movies.clear();
+            movies.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
