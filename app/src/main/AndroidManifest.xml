@@ -11,20 +11,22 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".popularmovie.view.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".popularmovie.view.PopularMovieActivity" />
         <activity android:name=".retrofit.view.RetrofitMainScreenActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+            <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".cricket.CricketActivity" />
         <activity android:name=".NavigationDrawerActivity" />
         <activity android:name=".FloatingActionBarActivity" />

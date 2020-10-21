@@ -80,6 +80,7 @@ public class StartActivity extends AppCompatActivity implements ButtonListener {
         list.add(new ButtonModel(11, "Cricket"));
         list.add(new ButtonModel(12, "Retrofit"));
         list.add(new ButtonModel(13, "PopularMovie"));
+
         return list;
     }
 
@@ -141,6 +142,7 @@ public class StartActivity extends AppCompatActivity implements ButtonListener {
                 intent = new Intent(StartActivity.this, PopularMovieActivity.class);
                 startActivity(intent);
                 break;
+
             default:
 
         }
