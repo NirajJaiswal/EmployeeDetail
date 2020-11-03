@@ -37,7 +37,7 @@
         <activity android:name=".fragcommunication.FragActivity" />
         <activity android:name=".addfrag.AddActivity" />
         <activity android:name=".navigation.NavigationActivity" />
-        <activity android:name=".StartActivity" />
+        <activity android:name=".StartFragment" />
         <activity android:name=".employee_detail.EmployeeDetailsActivity" />
         <activity android:name=".employee_detail.MainActivity" />
     </application>

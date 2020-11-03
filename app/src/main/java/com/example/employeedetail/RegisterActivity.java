@@ -88,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     mProgressBar.setVisibility(View.GONE);
                     Toast.makeText(RegisterActivity.this, "Successfully register", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),StartActivity.class));
+                    startActivity(new Intent(getApplicationContext(),NavigationDrawerActivity.class));
                     finish();
                 }
                 else

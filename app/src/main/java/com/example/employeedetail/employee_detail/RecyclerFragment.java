@@ -2,14 +2,6 @@ package com.example.employeedetail.employee_detail;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,9 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.employeedetail.R;
 import com.example.employeedetail.adapter.EmployeeAdapter;
-import com.example.employeedetail.employee_detail.BottomSheetMedicine;
 import com.example.employeedetail.listner.DataSendEmployeeFragToActivity;
 import com.example.employeedetail.listner.EmployeeData;
 import com.example.employeedetail.model.EmployeeDetails;
@@ -97,6 +95,7 @@ public class RecyclerFragment extends Fragment {
     private void initView() {
 
         recyclerView=view.findViewById(R.id.fragment_rv);
+
     }
 
     @Override

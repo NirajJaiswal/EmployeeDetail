@@ -26,8 +26,12 @@ public class StartRecyclerAdapter extends RecyclerView.Adapter<StartRecyclerHold
     public StartRecyclerAdapter(Context mContext, List<ButtonModel> mList) {
         this.mContext = mContext;
         this.mList = mList;
-        this.buttonListener= (ButtonListener) mContext;
         buttonModelList=new ArrayList<>(mList);
+    }
+
+    public void setListener(ButtonListener listener)
+    {
+     this.buttonListener=listener;
     }
     @NonNull
     @Override

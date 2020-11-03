@@ -9,10 +9,10 @@
 
         <menu>
 
-            <item android:title="Login"
+            <item android:title="Home"
                 android:id="@+id/login"
                 android:icon="@drawable/login"/>
-            <item android:title="My Order"
+            <item android:title="Employee detail"
                 android:id="@+id/myOrder"
                 android:icon="@drawable/myorder"/>
             <item android:title="Cart"

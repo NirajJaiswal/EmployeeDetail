@@ -1,19 +1,20 @@
 package com.example.employeedetail;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.employeedetail.employee_detail.EmployeeDetailFragment;
 import com.example.employeedetail.employee_detail.RecyclerFragment;
@@ -26,6 +27,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
+    private StartFragment startFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,9 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        addFragment();
+    startFragment =new StartFragment();
+        addFragment(startFragment);
+        setTitle("Start Screen");
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -47,8 +51,11 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
                 switch (item.getItemId()) {
                     case R.id.login:
                         Toast.makeText(NavigationDrawerActivity.this, "Login..", Toast.LENGTH_SHORT).show();
+                        addFragment(startFragment);
                         break;
                     case R.id.myOrder:
+                         RecyclerFragment recyclerFragment=new RecyclerFragment();
+                        addFragment(recyclerFragment);
                         Toast.makeText(NavigationDrawerActivity.this, "My Order", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.cart:
@@ -76,23 +83,15 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
 
     }
 
-    private void addFragment() {
-       RecyclerFragment recyclerFragment=new RecyclerFragment();
+    private void addFragment(Fragment fragment) {
+
        // TestNav testNav=new TestNav();
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.f_layout,recyclerFragment,"hello");
+        fragmentTransaction.replace(R.id.f_layout,fragment,"hello");
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
 
 
@@ -117,4 +116,41 @@ public class NavigationDrawerActivity extends AppCompatActivity implements DataS
         }
 
     }
+
+   /* @Override
+    public void onBackPressed() {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    getApplicationContext());
+
+            // set title
+            alertDialogBuilder.setTitle("Exit");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Do you really want to exit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                            NavigationDrawerActivity.this.finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, just close
+                            // the dialog box and do nothing
+                            Toast.makeText(NavigationDrawerActivity.this, "i wanna stay on this page", Toast.LENGTH_LONG).show();
+                            dialog.cancel();
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+    }*/
 }
