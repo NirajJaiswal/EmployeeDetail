@@ -7,4 +7,8 @@
     <color name="colorText">#212121</color>
     <color name="pink_color">#FF4081</color>
     <color name="colorBackground">#FFFFFF</color>
+    <color name="colorPrime">#2196f3</color>
+    <color name="colorPrimeDark">#1976d2</color>
+    <color name="colorAcc">#ffeb3b</color>
+    <color name="colorBack">#efefef</color>
 </resources>
