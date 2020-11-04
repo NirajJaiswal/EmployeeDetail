@@ -1,4 +1,4 @@
-package com.example.employeedetail.MultipleView;
+package com.example.employeedetail.multiple_view;
 
 public class Movie {
     private int movieImage;

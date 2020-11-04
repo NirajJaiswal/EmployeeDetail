@@ -25,6 +25,7 @@ import com.example.employeedetail.employee_detail.MainActivity;
 import com.example.employeedetail.fragcommunication.FragActivity;
 import com.example.employeedetail.listner.ButtonListener;
 import com.example.employeedetail.model.ButtonModel;
+import com.example.employeedetail.multiple_view.MultipleViewActivity;
 import com.example.employeedetail.navigation.NavigationActivity;
 import com.example.employeedetail.popularmovie.view.PopularMovieActivity;
 import com.example.employeedetail.retrofit.view.RetrofitMainScreenActivity;
@@ -121,6 +122,9 @@ public class StartFragment extends Fragment  {
                         intent = new Intent(getActivity(), PopularMovieActivity.class);
                         startActivity(intent);
                         break;
+                    case 14:
+                        intent=new Intent(getActivity(), MultipleViewActivity.class);
+                        startActivity(intent);
 
                     default:
 
@@ -153,6 +157,7 @@ public class StartFragment extends Fragment  {
         list.add(new ButtonModel(11, "Cricket"));
         list.add(new ButtonModel(12, "Retrofit"));
         list.add(new ButtonModel(13, "PopularMovie"));
+        list.add(new ButtonModel(14,"MultipleView"));
 
         return list;
     }
@@ -212,46 +217,6 @@ public class StartFragment extends Fragment  {
         return super.onOptionsItemSelected(item);
 
     }
-
-
-    /* @Override
-    public void onBackPressed() {
-
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    getActivity());
-
-            // set title
-            alertDialogBuilder.setTitle("Exit");
-
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage("Do you really want to exit?")
-                    .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // if this button is clicked, close
-                            // current activity
-                            getActivity().finish();
-                        }
-                    })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // if this button is clicked, just close
-                            // the dialog box and do nothing
-                            Toast.makeText(getContext(), "i wanna stay on this page", Toast.LENGTH_LONG).show();
-                            dialog.cancel();
-                        }
-                    });
-
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-
-            // show it
-            alertDialog.show();
-
-    }*/
-
 
 
 

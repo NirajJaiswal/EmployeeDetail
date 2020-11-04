@@ -1,4 +1,4 @@
-package com.example.employeedetail.MultipleView;
+package com.example.employeedetail.multiple_view;
 
 public class Scenery {
     private int sceneryImage;

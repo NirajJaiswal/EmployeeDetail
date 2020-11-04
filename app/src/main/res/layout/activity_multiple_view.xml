@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorBack"
     android:orientation="vertical"
-
-    tools:context=".MultipleView.MultipleViewActivity">
+    tools:context=".multiple_view.MultipleViewActivity">
+    <include layout="@layout/toolbar"/>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

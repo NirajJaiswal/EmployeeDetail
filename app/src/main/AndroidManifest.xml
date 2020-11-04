@@ -11,8 +11,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MultipleView.MultipleViewActivity"></activity>
-        <activity android:name=".MultipleViewrecyclerView.MultipleViewActivity" />
+        <activity android:name=".multiple_view.MultipleViewActivity"/>
         <activity
             android:name=".popularmovie.view.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
@@ -38,7 +37,6 @@
         <activity android:name=".fragcommunication.FragActivity" />
         <activity android:name=".addfrag.AddActivity" />
         <activity android:name=".navigation.NavigationActivity" />
-        <activity android:name=".StartFragment" />
         <activity android:name=".employee_detail.EmployeeDetailsActivity" />
         <activity android:name=".employee_detail.MainActivity" />
     </application>
