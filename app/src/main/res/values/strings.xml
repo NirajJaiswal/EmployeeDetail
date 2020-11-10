@@ -39,4 +39,7 @@
     <string name="serial_no">Serial No:</string>
     <string name="name">Name:</string>
     <string name="rating">Rating:</string>
+
+    <string name="Option1">Option1</string>
+    <string name="Option2">Option2</string>
 </resources>

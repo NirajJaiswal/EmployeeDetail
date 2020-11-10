@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".multiple_view.MultipleViewActivity"/>
+        <activity android:name=".expandableRecyclerView.ExpandableRecyclerViewActivity"></activity>
+        <activity android:name=".multiple_view.MultipleViewActivity" />
         <activity
             android:name=".popularmovie.view.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"

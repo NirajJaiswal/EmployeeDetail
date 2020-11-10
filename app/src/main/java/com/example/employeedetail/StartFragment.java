@@ -22,6 +22,7 @@ import com.example.employeedetail.adapter.StartRecyclerAdapter;
 import com.example.employeedetail.addfrag.AddActivity;
 import com.example.employeedetail.cricket.CricketActivity;
 import com.example.employeedetail.employee_detail.MainActivity;
+import com.example.employeedetail.expandableRecyclerView.ExpandableRecyclerViewActivity;
 import com.example.employeedetail.fragcommunication.FragActivity;
 import com.example.employeedetail.listner.ButtonListener;
 import com.example.employeedetail.model.ButtonModel;
@@ -125,6 +126,11 @@ public class StartFragment extends Fragment  {
                     case 14:
                         intent=new Intent(getActivity(), MultipleViewActivity.class);
                         startActivity(intent);
+                        break;
+                    case 15:
+                        intent=new Intent(getActivity(), ExpandableRecyclerViewActivity.class);
+                        startActivity(intent);
+
 
                     default:
 
@@ -158,6 +164,7 @@ public class StartFragment extends Fragment  {
         list.add(new ButtonModel(12, "Retrofit"));
         list.add(new ButtonModel(13, "PopularMovie"));
         list.add(new ButtonModel(14,"MultipleView"));
+        list.add(new ButtonModel(15,"Expandable RecyclerView"));
 
         return list;
     }
