@@ -2,11 +2,13 @@ package com.example.employeedetail.expandableRecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
 import com.example.employeedetail.R;
@@ -19,7 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpandableRecyclerViewActivity extends AppCompatActivity {
-RecyclerView recyclerView;
+private RecyclerView recyclerView;
+private Toolbar toolbar;
 
 
     @Override
@@ -32,9 +35,12 @@ RecyclerView recyclerView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandable_recycler_view);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("Expandable RecyclerView");
         recyclerView=findViewById(R.id.recycler_view_expandable);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         ExpandAdapter adapter=new ExpandAdapter(this,loadData());
         adapter.setParentClickableViewAnimationDefaultDuration();
         adapter.setParentAndIconExpandOnClick(true);
@@ -60,5 +66,10 @@ RecyclerView recyclerView;
             parentObjects.add(parent);
         }
         return parentObjects;
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
