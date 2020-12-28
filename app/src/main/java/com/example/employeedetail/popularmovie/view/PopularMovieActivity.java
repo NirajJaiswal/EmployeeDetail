@@ -15,6 +15,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -51,7 +52,7 @@ public class PopularMovieActivity extends AppCompatActivity implements MovieList
         isListView=false;
 
         activityPopularMovieBinding= DataBindingUtil.setContentView(this,R.layout.activity_popular_movie);
-        viewModel=ViewModelProviders.of(this).get(PopularMovieViewModel.class);
+        viewModel= new ViewModelProvider(this).get(PopularMovieViewModel.class);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

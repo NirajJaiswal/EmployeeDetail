@@ -18,7 +18,6 @@ import com.example.employeedetail.model.EmployeeDetails;
 public class EmployeeDetailFragment extends Fragment {
 private View view;
 private TextView mNameTextView,mDesignationTextView,mAgeTextView;
-private ImageView mProfileImage;
 
 
     @Nullable
@@ -45,11 +44,10 @@ private ImageView mProfileImage;
         mNameTextView=view.findViewById(R.id.tv_emp_name);
         mAgeTextView=view.findViewById(R.id.tv_emp_age);
         mDesignationTextView=view.findViewById(R.id.tv_emp_designation);
-        mProfileImage=view.findViewById(R.id.iv_employee_image);
+
     }
     private void getEmployeeData(EmployeeDetails employeeDetails)
     {
-        mProfileImage.setImageResource(employeeDetails.getProfile());
         mDesignationTextView.setText(employeeDetails.getDesignation());
         mAgeTextView.setText(String.valueOf(employeeDetails.getAge()));
         mNameTextView.setText(employeeDetails.getName());

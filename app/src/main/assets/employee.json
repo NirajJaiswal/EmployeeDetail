@@ -1,0 +1,58 @@
+{
+  "employeeDetails": [
+    {
+      "name": "Shreya",
+      "designation": "Techinal Support",
+      "profile": "R.drawable.after",
+      "age": 25
+    },
+    {
+      "name": "Niraj",
+      "designation": "Android",
+      "profile": "R.drawable.archer",
+      "age": 31
+    },
+    {
+      "name": "Raj",
+      "designation": "Data Analyst",
+      "profile": "R.drawable.movie",
+      "age": 24
+    },
+    {
+      "name": "Rohan",
+      "designation": "Pyhton",
+      "profile": "R.drawable.baby",
+      "age": 21
+    },
+    {
+      "name": "Kunal",
+      "designation": "System Analyst",
+      "profile": "R.drawable.it",
+      "age": 32
+    },
+    {
+      "name": "ZuKar",
+      "designation": "cloud",
+      "profile": "R.drawable.joker",
+      "age": 30
+    },
+    {
+      "name": "Slaendra",
+      "designation": "angular",
+      "profile": "R.drawable.pamhir",
+      "age": 31
+    },
+    {
+      "name": "Sayah",
+      "designation": "Angular",
+      "profile": "R.drawable.replicas",
+      "age": 50
+    },
+    {
+      "name": "Ganguly",
+      "designation": ".Net",
+      "profile": "R.drawable.star",
+      "age": 25
+    }
+  ]
+}

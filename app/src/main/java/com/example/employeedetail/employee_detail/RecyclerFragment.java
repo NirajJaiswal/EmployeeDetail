@@ -22,6 +22,14 @@ import com.example.employeedetail.adapter.EmployeeAdapter;
 import com.example.employeedetail.listner.DataSendEmployeeFragToActivity;
 import com.example.employeedetail.listner.EmployeeData;
 import com.example.employeedetail.model.EmployeeDetails;
+import com.example.employeedetail.model.EmployeeResponse;
+import com.example.employeedetail.utils.LoggerUtils;
+import com.example.employeedetail.utils.Util;
+import com.google.gson.Gson;
+
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,20 +84,38 @@ public class RecyclerFragment extends Fragment {
 
     private List<EmployeeDetails> loadDetails() {
 
-        List<EmployeeDetails> mList=new ArrayList<>();
+        List<EmployeeDetails> mList = new ArrayList<>();
+        JSONObject jsonObject = readMockData();
+        if (null != jsonObject) {
+            mList=parseJsonObject(jsonObject);
+        }
+            return mList;
 
-       mList.add(new EmployeeDetails("Shreya","java",R.drawable.after,21));
-        mList.add(new EmployeeDetails("Niraj","Android",R.drawable.archer,20));
-        mList.add(new EmployeeDetails("Kumar","Dot Net",R.drawable.movie,19));
-       mList.add(new EmployeeDetails("Kumari","HTML",R.drawable.baby,18));
-        mList.add(new EmployeeDetails("Shree","Python",R.drawable.enormity,17));
-       mList.add(new EmployeeDetails("Ram","Data Science",R.drawable.it,16));
-       mList.add(new EmployeeDetails("Shyam","Machine Learning",R.drawable.joker,15));
-      mList.add(new EmployeeDetails("Ekta","Deep Learning",R.drawable.pamhir,14));
-        mList.add(new EmployeeDetails("Singh","Robotics",R.drawable.replicas,13));
-       mList.add(new EmployeeDetails("Aniket","MySql",R.drawable.star,12));
+    }
 
+    private List<EmployeeDetails> parseJsonObject(JSONObject jsonObject)
+    {
+        List<EmployeeDetails> mList= new ArrayList<>();
+        try {
+            Gson gson = new Gson();
+            EmployeeResponse employeeResponse = gson.fromJson(String.valueOf(jsonObject), EmployeeResponse.class);
+            mList=employeeResponse.getEmployeeDetails();
+        } catch (Exception ex){
+            LoggerUtils.exception(ex.getMessage());
+        }
         return mList;
+    }
+
+
+    private JSONObject readMockData() {
+        String announcementsFileData = Util.loadJSONContent(getActivity(), "employee.json");
+        try {
+            return new JSONObject(announcementsFileData);
+        } catch (JSONException e) {
+            LoggerUtils.exception("Invalid Json");
+            LoggerUtils.exception(e.getMessage());
+        }
+        return null;
     }
 
     private void initView() {

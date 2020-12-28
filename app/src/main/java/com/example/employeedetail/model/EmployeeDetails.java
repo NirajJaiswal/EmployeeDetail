@@ -3,30 +3,25 @@ package com.example.employeedetail.model;
 import java.io.Serializable;
 
 public class EmployeeDetails implements Serializable {
-    private String Name;
-    private String Designation;
-    private int Profile;
+    private String name;
+    private String designation;
     private int age;
 
 
-    public EmployeeDetails(String name, String designation, int profile, int age) {
-        Name = name;
-        Designation = designation;
-        Profile = profile;
+    public EmployeeDetails(String name, String designation, int age) {
+        this.name = name;
+        this.designation = designation;
         this.age = age;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getDesignation() {
-        return Designation;
+        return designation;
     }
 
-    public int getProfile() {
-        return Profile;
-    }
 
     public int getAge() {
         return age;
@@ -35,9 +30,8 @@ public class EmployeeDetails implements Serializable {
     @Override
     public String toString() {
         return "EmployeeDetails{" +
-                "Name='" + Name + '\'' +
-                ", Designation='" + Designation + '\'' +
-                ", Profile=" + Profile +
+                "Name='" + name + '\'' +
+                ", Designation='" + designation + '\'' +
                 ", age=" + age +
                 '}';
     }
